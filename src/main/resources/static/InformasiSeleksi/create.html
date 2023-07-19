@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description"
+          content="Website Sistem Informasi Akademik Politeknik Astra. Silahkan gunakan NIM dan password Anda untuk login.">
+    <meta name="keywords"
+          content="SIA,Sistem,Politeknik Astra,PMA,Akademik,SSO,Polman,Polman Astra,Politeknik Manufaktur,Politeknik Manufaktur Astra,Pendidikan Astra,Astra Politeknik,Polytechnic Astra,Astra Polytechnic,Astratek,Astratech,Kampus Astra,Kampus Terbaik,Politeknik Terbaik,Politeknik Vokasi,Vokasi,Vokasi Terbaik">
+    <meta name="author" content="Politeknik Astra">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Siormawa</title>
+    <link rel="shortcut icon" href="../Content/User/logo3.png">
+    <link href="../Content/Plugins/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../Content/Plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../Content../Content/jquery.fancybox.css" rel="stylesheet"/>
+    <link href="../Content../Content/bootstrap-select.min.css" rel="stylesheet"/>
+    <link href="../Content/Styles/Style.css" rel="stylesheet"/>
+    <script src="../Content/Scripts/tether/tether.min.js"></script>
+    <script src="../Content/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="../Content/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="../Content/Plugins/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js"></script>
+
+    <!--    Ini buat toogle-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="../Content/Plugins/Highcharts-5.0.14/code/highcharts.js"></script>
+    <script src="../Content/Plugins/Highcharts-5.0.14/code/highcharts-more.js"></script>
+    <script src="../Content/Plugins/Highcharts-5.0.14/code/modules/solid-gauge.js"></script>
+    <script src="../Content/Plugins/Highcharts-5.0.14/code/modules/exporting.js"></script>
+    <script src="../Content/Scripts/jquery.fancybox.pack.js"></script>
+    <script src="../Content/Scripts/bootstrap-select.min.js"></script>
+    <script src="../Content/Scripts/LetterAvatar.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function () {
+            $('[rel="tooltip"]').tooltip()
+        })
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+
+        function redirectNotifikasi() {
+            window.location.href = 'Page_Notifikasi.aspx';
+        }
+
+        function sentValidation(input) {
+            $(input).addClass('disabled');
+            $(input).text('Mohon tunggu..');
+        }
+
+        function pageLoad(sender, args) {
+            $('.selectpicker').selectpicker();
+            katweKibsAvatar.init({
+                dataChars: 2
+            });
+        }
+
+        function refreshChart() {
+            try {
+                $('#chartNilai').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#chartKehadiran').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#chartJamMinus').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#chartPelanggaran').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-ketercapaianpertemuan').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-ketercapaianmateri').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-ketercapaianwadir').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-kehadiranmahasiswatingkat1').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-kehadiranmahasiswatingkat2').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-kehadiranmahasiswatingkat3').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            try {
+                $('#container-kehadiranmahasiswawadir').highcharts().setSize(undefined, undefined, false);
+            } catch (err) {
+            }
+            for (i = 1; i <= 10; i++) {
+                try {
+                    $('#container-kehadiranMataKuliah' + i).highcharts().setSize(undefined, undefined, false);
+                } catch (err) {
+                }
+                try {
+                    $('#container-ketercapaianMataKuliah' + i).highcharts().setSize(undefined, undefined, false);
+                } catch (err) {
+                }
+            }
+        }
+    </script>
+    <script src="../Content/Scripts/jquery.floatThead.js"></script>
+    <style>
+        .mce-branding-powered-by {
+            display: none;
+        }
+
+        table {
+            border-top: none;
+            border-bottom: none;
+            background-color: #FFF;
+        }
+
+        .table-striped tbody tr:nth-of-type(2n+1) {
+            background-color: #FFF;
+        }
+
+        .table-striped tbody tr:nth-of-type(2n), thead {
+            background-color: #ECECEC;
+        }
+
+        .table-striped tbody tr.pagination-ys {
+            background-color: #FFF;
+        }
+
+        .highcharts-credits {
+            display: none;
+            height: 0px;
+        }
+
+        .loaderPMB {
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            z-index: 1;
+            border: 10px solid #f3f3f3; /* Light grey */
+            border-top: 10px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .gallery img {
+            text-align: center;
+            width: auto;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery .caption {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .photo-item {
+            position: relative;
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .delete-button {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background-color: red;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        .gallery-item:hover .delete-button {
+            display: block;
+        }
+    </style>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .notification.show {
+            opacity: 1;
+        }
+    </style>
+    <script src="../Scripts/tinymce/tinymce.min.js"></script>
+
+</head>
+<body class="scrollstyle2">
+<div>
+    <div class="polman-nav-static-top">
+        <div class="float-left polman-adjust4">
+            <div class="fa fa-bars fa-2x polman-adjust2" style="margin-right: 15px; cursor: pointer;" aria-hidden="true"
+                 onclick="changestate();"></div>
+            <a href="#">
+                <img src="../Content/Images/IMG_Logo.png" style="height: 40px; margin-top: -10px;"/>
+            </a>
+        </div>
+        <div class="polman-menu">
+            <nav class="nav justify-content-end" style="padding-top: 5px;">
+                <b id="username1" style="position: absolute;">BUNGA IRMADA YULIANTI (ADMIN)</b>
+                <span id="lastlogin"
+                      style="font-size: 11px; margin-top: -2px; width: 500px; text-align: right;"><br><br>Login terakhir: 22 Juni 2023, 15:12 WIB</span>
+            </nav>
+        </div>
+        <div class="polman-menu-bar">
+            <div class="float-right">
+                <div class="fa fa-bars fa-2x" style="margin-top: 9px; cursor: pointer;" aria-hidden="true"
+                     data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="menu"></div>
+            </div>
+        </div>
+        <div class="polman-notifikasi" onclick="redirectNotifikasi();">
+            <div class="float-right">
+                <div class="fa fa-envelope fa-2x" style="margin-top: 8px; margin-right: 15px; cursor: pointer;"
+                     aria-hidden="true"></div>
+                <span class="badge badge-pill badge-info polman-badge">
+                        1
+                    </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="polman-nav-static-right collapse scrollstyle2 polman-adjust5">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="list-group">
+                <!--<a class="list-group-item list-group-item-action polman-username"
+                   style="border-radius: 0px; border: none; background-color: #EEE;">Hai,&nbsp;<b>RONI PRASETYO</b></a>-->
+                <a href='@Url.Action("Index", "Logout")' class="list-group-item list-group-item-action"
+                   style="border-radius: 0px; border: none; padding-left: 23px;"><i
+                        class='fa fa-sign-out fa-lg fa-pull-left'></i>Logout</a>
+                <a href='../index.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit;'><i
+                        class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
+                <a href='../Event/index.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit;'><i
+                        class='fa fa-calendar fa-lg fa-pull-left'></i>Event </a>
+                <a href='../User/index.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit;'><i
+                        class='fa fa-user-plus fa-lg fa-pull-left'></i>User </a>
+                <a href='../Kandidat/index.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit;'><i
+                        class='fa fa-users fa-lg fa-pull-left'></i>Kandidat MPM / BEM </a>
+                <a href="#menu3" role="tab" class="mt-0 list-group-item list-group-item-action" data-toggle="collapse"
+                   data-parent="#accordion" aria-expanded="true" aria-controls="menu3"
+                   style="border-radius: 0px; border: none;"><i class="fa fa-chevron-down fa-lg fa-pull-left"></i>Pemberitahuan</a>
+                <div id="menu3" class="collapse" role="tabpanel" aria-expanded="true" style=""><a
+                        href="../Informasi/index.html" class="list-group-item list-group-item-action "
+                        style="border-radius: 0px; border: none; padding-left: 47px; display: inherit;"><b>–&nbsp;&nbsp;</b>Informasi Umum
+                </a><a href="../InformasiSeleksi/index.html" class="list-group-item list-group-item-action polman-menu-active"
+                       style="border-radius: 0px; border: none; padding-left: 47px; display: inherit;"><b>–&nbsp;&nbsp;</b>Informasi Seleksi </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="allcontent" class="polman-adjust5">
+        <ol class="breadcrumb polman-breadcrumb">
+            <li class="breadcrumb-item"><a href='http://localhost/sso' data-toggle="tooltip" data-placement="bottom"
+                                           title="Menuju Halaman SSO">Sistem Informasi Ormawa</a></li>
+            <li class="breadcrumb-item">Pemberitahuan</li>
+            <li class="breadcrumb-item">Informasi Seleksi</li>
+        </ol>
+        <hr/>
+        <form action="/saveInformasiSeleksi" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <b>Tambah Informasi Seleksi</b>
+            </div>
+            <div class="card-block" style="height: 650px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="judul">Judul <b
+                                    style="color: red">*</b></label>
+                            <input type="text" name="judul" id="judul" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="file">File / Gambar <b
+                                    style="color: red">*</b></label>
+                            <input type="file" name="file" id="file" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="deskripsi">Deskripsi <b
+                                    style="color: red">*</b></label>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" style="height: 450px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+         <div class="form-group">
+             <div class="col-md-offset-2 col-md-10">
+                 <a href="../InformasiSeleksi/index.html" class="btn btn-outline-secondary">Batal</a>&nbsp;
+                 <button type="submit" class="btn btn-primary">Simpan</button>
+             </div>
+         </div>
+        </form>
+    </div>
+</div>
+
+<script src="../Content/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../Content/assets/vendor/chart.js/chart.min.js"></script>
+<script src="../Content/assets/vendor/echarts/echarts.min.js"></script>
+<script src="../Content/assets/vendor/quill/quill.min.js"></script>
+<script src="../Content/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="../Content/assets/vendor/php-email-form/validate.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!-- Template Main JS File -->
+<script src="../Content/assets/js/main.js"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#deskripsi',
+        plugins: 'searchreplace '
+    });
+</script>
+<script>
+    function validateFile(file) {
+        // Mengecek apakah file yang diunggah adalah gambar (jpg, jpeg, atau png)
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        var validExtension = allowedExtensions.exec(file.name);
+        if (!validExtension) {
+            alert('File yang diunggah harus memiliki ekstensi .jpg, .jpeg, atau .png.');
+            return false;
+        }
+
+        // Mengecek ukuran file (maksimal 5 MB)
+        var maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
+        if (file.size > maxSizeInBytes) {
+            alert('Ukuran file terlalu besar. Maksimal ukuran file adalah 5 MB.');
+            return false;
+        }
+
+        // Semua validasi terpenuhi
+        return true;
+    }
+
+    // Event listener untuk input file
+    var fileInput = document.getElementById('file');
+    fileInput.addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        if (file) {
+            if (validateFile(file)) {
+                // File valid, lakukan aksi tambahan di sini
+                console.log('File valid:', file.name);
+            } else {
+                // File tidak valid, atur kembali input file
+                fileInput.value = '';
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.close').click(function () {
+            refreshThead();
+        });
+
+        var x, y, top, left, down;
+
+        $(".scrollstyle").on({
+            mousedown: function (e) {
+                if ($(this).hasClass('ignore-drag')) return;
+                e.preventDefault();
+                down = true;
+                x = e.pageX;
+                y = e.pageY;
+                top = $(this).scrollTop();
+                left = $(this).scrollLeft();
+            },
+            mousemove: function (e) {
+                if ($(this).hasClass('ignore-drag')) return;
+                if (down) {
+                    var newX = e.pageX;
+                    var newY = e.pageY;
+
+                    $(".scrollstyle").scrollTop(top - newY + y);
+                    $(".scrollstyle").scrollLeft(left - newX + x);
+                }
+            },
+            mouseup: function (e) {
+                if ($(this).hasClass('ignore-drag')) return;
+                down = false;
+            }
+        });
+    });
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+</body>
+</html>
