@@ -188,19 +188,17 @@
 <div>
     <div class="polman-nav-static-top">
         <div class="float-left polman-adjust4">
-            <div class="fa fa-bars fa-2x polman-adjust2" id="opennav" style="margin-right: 15px; cursor: pointer;"
-                 aria-hidden="true"
+            <div class="fa fa-bars fa-2x polman-adjust2" style="margin-right: 15px; cursor: pointer;" aria-hidden="true"
                  onclick="changestate();"></div>
             <a href="#">
-                <img src="../Content/Images/IMG_Logo_astratech.png"
-                     style="height: 45px; margin-top: -10px; margin-left: 10px;"/>
+                <img src="../Content/Images/IMG_Logo.png" style="height: 40px; margin-top: -10px;"/>
             </a>
         </div>
         <div class="polman-menu">
             <nav class="nav justify-content-end" style="padding-top: 5px;">
-                <b id="username1" style="position: absolute;margin-top: 10px;"></b>
+                <b id="username1" style="position: absolute;">BUNGA IRMADA YULIANTI (ADMIN)</b>
                 <span id="lastlogin"
-                      style="font-size: 11px; margin-top: -2px; width: 500px; text-align: right;"><br><br></span>
+                      style="font-size: 11px; margin-top: -2px; width: 500px; text-align: right;"><br><br>Login terakhir: 22 Juni 2023, 15:12 WIB</span>
             </nav>
         </div>
         <div class="polman-menu-bar">
@@ -220,36 +218,38 @@
         </div>
     </div>
 
-    <div id="menu" class="polman-nav-static-right collapse scrollstyle2 polman-adjust5">
+    <div class="polman-nav-static-right collapse scrollstyle2 polman-adjust5">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="list-group">
-                <a id="logoutLink" href="../Login/login.html" onclick="logout()" class="list-group-item list-group-item-action"
+                <!--<a class="list-group-item list-group-item-action polman-username"
+                   style="border-radius: 0px; border: none; background-color: #EEE;">Hai,&nbsp;<b>RONI PRASETYO</b></a>-->
+                <a href='@Url.Action("Index", "Logout")' class="list-group-item list-group-item-action"
                    style="border-radius: 0px; border: none; padding-left: 23px; display: inherit; padding-top: 12px; padding-bottom: 12px;"><i
                         class='fa fa-sign-out fa-lg fa-pull-left'></i>Logout</a>
-                <a id="dashboardLink" href='../index.html' class='mt-0 list-group-item list-group-item-action'
+                <a href='../index.html' class='mt-0 list-group-item list-group-item-action'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
-                <a id="eventLink" href='../Event/index.html' class='mt-0 list-group-item list-group-item-action '
-                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
-                        class='fa fa-calendar fa-lg fa-pull-left'></i>Event </a>
-                <a id="userLink" href='../User/index.html' class='mt-0 list-group-item list-group-item-action polman-menu-active'
+                <a href='../Event/index.html' class='mt-0 list-group-item list-group-item-action polman-menu-active'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px; background-color: #e6f0ff; '><i
+                        class='fa fa-calendar fa-lg fa-pull-left'></i>Event </a>
+                <a href='../User/index.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-user-plus fa-lg fa-pull-left'></i>User </a>
-                <a id="kandidatLink" href='../Kandidat/index.html' class='mt-0 list-group-item list-group-item-action'
+                <a href='../Kandidat/index.html' class='mt-0 list-group-item list-group-item-action'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-users fa-lg fa-pull-left'></i>Kandidat MPM / BEM </a>
-                <a id="informasiLink" href='../Informasi/index.html' class='mt-0 list-group-item list-group-item-action '
+                <a href='../Informasi/index.html' class='mt-0 list-group-item list-group-item-action'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-info-circle fa-lg fa-pull-left'></i>Informasi</a>
-                <a id="organisasiLink" href='../Organisasi/index.html' class='mt-0 list-group-item list-group-item-action '
-                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
-                        class='fa fa-sitemap fa-lg fa-pull-left'></i>Organisasi</a>
-                <a id="jabatanLink" href='../Jabatan/index.html' class='mt-0 list-group-item list-group-item-action '
-                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
-                        class='fa fa-handshake-o fa-lg fa-pull-left'></i>Jabatan</a>
-                <a id="periodeLink" href='../Periode/index.html' class='mt-0 list-group-item list-group-item-action '
-                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
-                        class='fa fa-hourglass fa-lg fa-pull-left'></i>Periode</a>
+                <!--                <a href="#menu3" role="tab" class="mt-0 list-group-item list-group-item-action" data-toggle="collapse"-->
+                <!--                   data-parent="#accordion" aria-expanded="true" aria-controls="menu3"-->
+                <!--                   style="border-radius: 0px; border: none;"><i class="fa fa-chevron-down fa-lg fa-pull-left"></i>Pemberitahuan</a>-->
+                <!--                <div id="menu3" class="collapse" role="tabpanel" aria-expanded="true" style=""><a-->
+                <!--                        href="../Informasi/index.html" class="list-group-item list-group-item-action"-->
+                <!--                        style="border-radius: 0px; border: none; padding-left: 47px; display: inherit;"><b>–&nbsp;&nbsp;</b>Informasi Umum-->
+                <!--                </a><a href="../InformasiSeleksi/index.html" class="list-group-item list-group-item-action "-->
+                <!--                       style="border-radius: 0px; border: none; padding-left: 47px; display: inherit;"><b>–&nbsp;&nbsp;</b>Informasi Seleksi </a>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>
@@ -260,63 +260,54 @@
             <li class="breadcrumb-item">Event</li>
         </ol>
         <hr/>
-            <div class="card">
-                <div class="card-header">
-                    <b>Detail Event</b>
-                </div>
-                <div class="card-block" style="height: 650px">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <input type="text" name="idEvent" id="idEvent" class="form-control" hidden/>
-                                <label style='font-weight: bold;' for="nama">Nama Event <b
-                                        style="color: red">*</b></label>
-                                <input type="text" name="nama" id="nama" class="form-control" readonly/>
-                            </div>
+        <div class="card">
+            <div class="card-header">
+                <b>Detail Event</b>
+            </div>
+            <div class="card-block" style="height: 650px">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="nama">Nama Tahapan</label>
+                            <input type="text" name="nama" id="nama" class="form-control" readonly/>
                         </div>
-                        <div class="col-lg-7">
-                            <div class="form-group">
-                                <label style='font-weight: bold;' for="deskripsi">Deskripsi Event <b
-                                        style="color: red">*</b></label>
-                                <input type="text" name="deskripsi" id="deskripsi" class="form-control" readonly/>
-                            </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="deskripsi">Deskripsi Tahapan</label>
+                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" readonly/>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="form-group text-right">
-                                <a href="javascript:void(0)" type="button" class="btn btn-primary text-white" data-toggle="tooltip" data-placement="bottom" title="Next Tahapan" onclick="NextTahapan()" style="width: 170px">
-                                    Next Tahapan
-                                </a>
-                                <hr style="border-top: 1px solid;">
-                            </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label style='font-weight: bold;' for="slot">Slot</label>
+                            <input type="text" name="slot" id="slot" class="form-control" readonly/>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <div class="table responsive">
-                                    <table id="basic-datatables" class="table table-hover table-bordered table-condensed table-striped grid text-center">
-                                        <thead>
-                                        <th class="text-center" style="width: 19px"><b>No.</b></th>
-                                        <th class="text-center" style="width: 200px"><b>Nama</b></th>
-                                        <th class="text-center" style="width: 350px"><b>Deskripsi</b></th>
-                                        <th class="text-center" style="width: 70px"><b>Slot (Kuota)</b></th>
-                                        <th class="text-center" style="width: 50px"><b>BEM %</b></th>
-                                        <th class="text-center" style="width: 50px"><b>MPM %</b></th>
-                                        <th class="text-center" style="width: 50px"><b>HIMMA %</b></th>
-                                        <th class="text-center" style="width: 100px"><b>Status</b></th>
-                                        <th class="text-center" style="width: 80px"><b>Aksi</b></th>
-                                        </thead>
-                                    </table>
-                                </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="table responsive">
+                                <table id="basic-datatables" class="table table-hover table-bordered table-condensed table-striped grid text-center">
+                                    <thead>
+                                    <th class="text-center" style="width: 19px"><b>No.</b></th>
+                                    <th class="text-center" style="width: 250px"><b>Nama</b></th>
+                                    <th class="text-center" style="width: 150px"><b>Username</b></th>
+                                    <th class="text-center" style="width: 200px"><b>Program Studi</b></th>
+                                    <th class="text-center" style="width: 200px"><b>Pendaftaran</b></th>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <br/>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <a href="../Event/index.html" class="btn btn-outline-secondary">Kembali</a>&nbsp;
-                </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a href="javascript:void(0)" class="btn btn-outline-secondary" onclick="FungsiBackDetail()">Kembali</a>&nbsp;
             </div>
+        </div>
         </form>
     </div>
 </div>
@@ -372,44 +363,29 @@
     document.addEventListener('DOMContentLoaded', function() {
         var urlParams = new URLSearchParams(window.location.search);
         var id = urlParams.get("id");
-        var url = 'http://localhost:8080/getEvent?id=' + id;
-        var url2 = 'http://localhost:8080/getTahapansByIdEvent?id=' + id;
+        var url = 'http://localhost:8080/getTahapanByIdTahapanSemua?id=' + id;
+        var url2 = 'http://localhost:8080/getDetailTahapansByIdTahapan?id=' + id;
         $(document).ready(function () {
             $.getJSON(url,
                 function (json) {
                     var data = json;
-                    $("#idEvent").val(data.idEvent);
                     $("#nama").val(data.nama);
                     $("#deskripsi").val(data.deskripsi);
+                    $("#slot").val(data.slot);
                 }
             );
         });
 
         $.getJSON(url2, function (json) {
             var table = $('#basic-datatables').DataTable();
-            var status = "";
-
             // Loop melalui data JSON dan tambahkan ke tabel
             for (var i = 0; i < json.length; i++) {
-
-                if(json[i].status == "Aktif"){
-                    status = '<label style="color: limegreen">Aktif</label>'
-                }else if(json[i].status == "Tidak Aktif"){
-                    status = '<label style="color: red">Tidak Aktif</label>'
-                }else if(json[i].status == "Selesai") {
-                    status = '<label>Selesai</label>';
-                }
-
                 var rowData = [
                     i + 1,
-                    json[i].nama,
-                    json[i].deskripsi,
-                    json[i].slot,
-                    json[i].nilaibem,
-                    json[i].nilaimpm,
-                    json[i].nilaihimma,
-                    status,
-                    '<a href="../Event/detailkandidat.html?id=' + json[i].idTahapan + '" data-toggle="tooltip" data-placement="bottom" title="Detail Kandidat"><i class="fa fa-bars">&nbsp&nbsp</i></a>'
+                    json[i].idKandidat.nama,
+                    json[i].idKandidat.username,
+                    json[i].idKandidat.prodi,
+                    json[i].idKandidat.pendaftaran
                 ];
                 table.row.add(rowData);
             }
@@ -418,207 +394,17 @@
         });
     });
 
-    function fungsiswitch(id) {
-        var switchElement = document.getElementById(`StatusSwitch${id}`);
-        var url2 = 'http://localhost:8080/getTahapanAktif';
-
-        if (switchElement.checked) {
-            var konfirmasi = confirm("Apakah Anda yakin ingin mengaktifkan Tahapan?");
-
-            if (konfirmasi) {
-                $.getJSON(url2, function (json) {
-                    if (json.length > 0 ) {
-                        alert("Terdapat tahapan yang masih aktif !");
-                        switchElement.checked = false;
-                    } else {
-                        activateTahapan(id); // Dipindahkan ke sini
-                        switchElement.checked = true;
-                    }
-                })
-            } else {
-                switchElement.checked = false;
-            }
-        } else {
-            var konfirmasi = confirm("Apakah Anda yakin ingin menonaktifkan Tahapan?");
-
-            if (konfirmasi) {
-                deactivateTahapan(id);
-                switchElement.checked = false;
-            } else {
-                switchElement.checked = true;
-            }
-        }
-
-    }
-
-    function activateTahapan(id) {
-        var url2 = 'http://localhost:8080/getEventAktif';
-        $.ajax({
-            url: "http://localhost:8080/aktifkanTahapan?id=" + id,
-            success: function (response) {
-                alert("Tahapan berhasil diaktifkan");
-            },
-            error: function (xhr, status, error) {
-                alert("Terjadi kesalahan saat mengaktifkan tahapan.");
-            }
-        });
-    }
-    function deactivateTahapan(id) {
-        $.ajax({
-            url: "http://localhost:8080/nonaktifkanTahapan?id=" + id,
-            success: function (response) {
-                alert("Tahapan berhasil dinonaktifkan");
-            },
-            error: function (xhr, status, error) {
-                alert("Terjadi kesalahan saat menonaktifkan tahapan.");
-            }
-        });
-    }
-
-    function NextTahapan(){
+    function FungsiBackDetail(){
         var urlParams = new URLSearchParams(window.location.search);
-        var idEvent = urlParams.get("id");
-        var urutanaktif = "";
-        var url2 = 'http://localhost:8080/getTahapanAktif';
+        var id = urlParams.get("id");
+        var url = 'http://localhost:8080/getTahapanByIdTahapanSemua?id=' + id;
 
-        var confirmNext = confirm("Anda yakin ingin melanjutkan tahapan?");
-
-        if (confirmNext) {
-            $.getJSON(url2, function (json) {
-                if (json.length > 0 ) {;
-                    urutanaktif = json[0].urutan;
-                    activateNextTahapan(idEvent, urutanaktif);
-                    selesaikanTahapan(idEvent, urutanaktif);
-                    location.reload();
-                }
-            })
-        }
-    }
-
-    function activateNextTahapan(idEvent, urutanaktif){
-        urutanaktif = urutanaktif + 1;
-        $.ajax({
-            url: "http://localhost:8080/aktifkanTahapanByUrutan?idEvent=" + idEvent + "&urutan=" + urutanaktif,
-            success: function (response) {
-                alert("Tahapan berikutnya berhasil diaktifkan !");
-            },
-            error: function (xhr, status, error) {
-                alert("Terjadi kesalahan saat mengaktifkan tahapan.");
-            }
+        $.getJSON(url, function (json) {
+            console.log(json);
+            var idEvent = json.idEvent.idEvent;
+            window.location.href = '../Event/detail.html?id=' + idEvent;
         });
     }
-
-    function selesaikanTahapan(idEvent, urutanaktif){
-        $.ajax({
-            url: "http://localhost:8080/selesaikanTahapanByUrutan?idEvent=" + idEvent + "&urutan=" + urutanaktif,
-            success: function (response) {
-            },
-            error: function (xhr, status, error) {
-            }
-        });
-    }
-
-    function changestate(param) {
-        if (param == "open") {
-            $(".polman-adjust5").css("marginLeft", "0px");
-            $(".hidemenu").css("visibility", "visible");
-            $(".headcol").css("marginLeft", "255px");
-            $("#opennav").attr("onclick", "changestate()");
-        } else {
-            $(".polman-adjust5").css("marginLeft", "-250px");
-            $(".hidemenu").css("visibility", "hidden");
-            $(".headcol").css("marginLeft", "5px");
-            //get id opennav and change to closed
-            $("#opennav").attr("onclick", "changestate('open')");
-        }
-    }
-
-    function hidemenu() {
-        $.ajax({
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            success: function (r) {
-                changestate(r.d);
-            },
-            failure: function (response) {
-                alert("Terjadi Kesalahan");
-            }
-        });
-    }
-
-    function getCookieValue(cookieName) {
-        var name = cookieName + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var cookieArray = decodedCookie.split(";");
-
-        for (var i = 0; i < cookieArray.length; i++) {
-            var cookie = cookieArray[i];
-            while (cookie.charAt(0) === " ") {
-                cookie = cookie.substring(1);
-            }
-            if (cookie.indexOf(name) === 0) {
-                return cookie.substring(name.length, cookie.length);
-            }
-        }
-
-        return "";
-    }
-
-    // Mengambil nilai cookie "nama" dan "role"
-    var nama = getCookieValue("nama");
-    var role = getCookieValue("role");
-
-    document.getElementById("username1").textContent = nama + " (" + role + ")";
-
-    function deleteCookie(cookieName) {
-        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    }
-
-    var role = getCookieValue("role"); // Fungsi untuk mendapatkan peran dari cookie
-    console.log(role);
-
-    // Daftar elemen sidebar yang perlu diubah berdasarkan peran
-    var sidebarElements = [
-        { elementId: "logoutLink", allowedRoles: ["Admin", "Ormawa", "Super Admin", "MAHASISWA"] },
-        { elementId: "dashboardLink", allowedRoles: ["Admin", "Ormawa", "Super Admin", "MAHASISWA"] },
-        { elementId: "eventLink", allowedRoles: ["Admin", "Super Admin"] },
-        { elementId: "userLink", allowedRoles: ["Admin"] },
-        { elementId: "kandidatLink", allowedRoles: ["Admin"] },
-        { elementId: "informasiLink", allowedRoles: ["Admin", "Ormawa", "Super Admin"] },
-        { elementId: "organisasiLink", allowedRoles: ["Admin", "Ormawa", "Super Admin"] },
-        { elementId: "jabatanLink", allowedRoles: ["Super Admin"]},
-        { elementId: "periodeLink", allowedRoles: ["Super Admin"]}
-    ];
-
-    // Menampilkan atau menyembunyikan elemen sidebar berdasarkan peran
-    for (var i = 0; i < sidebarElements.length; i++) {
-        var element = document.getElementById(sidebarElements[i].elementId);
-        if (element && sidebarElements[i].allowedRoles.includes(role)) {
-            element.style.display = "block"; // Menampilkan elemen sidebar
-        } else {
-            element.style.display = "none"; // Menyembunyikan elemen sidebar
-        }
-    }
-
-    function logout() {
-        deleteCookie("nama");
-        deleteCookie("role");
-        deleteCookie("nim");
-        deleteCookie("prodi");
-        window.location.href = "../Login/login.html";
-    }
-
-    /*function checkCookie() {
-        var cookieExists = document.cookie.indexOf("namaCookie") !== -1; // Ganti "namaCookie" dengan nama cookie yang ingin Anda periksa
-
-        if (!cookieExists) {
-            window.location.href = "../Login/login.html"; // Ganti "halaman-login.html" dengan URL halaman login yang Anda inginkan
-        }
-    }
-    // Panggil fungsi checkCookie saat halaman dimuat
-    document.addEventListener("DOMContentLoaded", function() {
-        checkCookie();
-    });*/
 
 </script>
 </body>

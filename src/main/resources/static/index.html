@@ -142,6 +142,13 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    var idEvent;
+    $.ajax({
+        url: "http://localhost:8080/getEventAktif",
+        success: function (data) {
+            idEvent = data.idEvent;
+        },
+    });
     /*@if
     (TempData["Notifikasi"] != null)
     {
@@ -192,50 +199,49 @@
                     d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
                     let expires = "expires=" + d.toUTCString();
                     if (username != "" && username != "undefined") {
-                        console.log("berhasil");
                         document.cookie = "nim=" + username + ";" + expires + "; path=/";
                         document.cookie = "nama=" + nama + ";" + expires + ";path=/";
                         document.cookie = "prodi=" + prodi + ";" + expires + ";path=/";
+                        document.cookie = "role=" + role + ";" + expires + ";path=/";
 
+                        console.log(idEvent);
                         $.ajax({
-                            url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
+                            url: "http://localhost:8080/getKandidatByUsername?username=" + NIM + "&idEvent=" + idEvent,
                             success: function (data) {
-                                role = data.role;
-                                console.log(role);
-
-                                if(role == "Admin"){
-                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                    window.location.href = "../User/index.html";
-                                }else if (role == "Ormawa"){
-                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                    window.location.href = "../User/index.html";
-                                }else if(role == "Super Admin"){
-                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                    window.location.href = "../Jabatan/index.html";
-                                }else if (data.role == ""){
-                                    $.ajax({
-                                        url: "http://localhost:8080/getKandidatByUsername?username=" + NIM,
-                                        success: function (data) {
-                                            role = data.role;
-                                            document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                            window.location.href = "../Mahasiswa/index.html";
-                                        },
-                                        error: function(xhr, status, error) {
-                                            alert("Terjadi kesalahan");
-                                        }
-                                    });
-                                }else if(role == "Mahasiswa") {
-                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                    window.location.href = "../Mahasiswa/index.html";
-                                }
+                                role = "Kandidat";
                             },
-                            error: function(xhr, status, error) {
-                                alert("Terjadi kesalahan");
+                            error: async  function (xhr, status, error) {
+                                await sleep(2000);
+                                $.ajax({
+                                    url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
+                                    success: function (data) {
+                                        role = data.role;
+                                        console.log("ksini cok");
+                                    },
+                                });
                             }
                         });
 
+                        function sleep(ms) {
+                            return new Promise(resolve => setTimeout(resolve, ms));
+                        }
+                        //console.log(role);
 
-
+                        // if(role == "Admin"){
+                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
+                        //     window.location.href = "../Admin/index.html";
+                        // }else if (role == "Ormawa"){
+                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
+                        //     window.location.href = "../Ormawa/index.html";
+                        // }else if(role == "Super Admin"){
+                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
+                        //     window.location.href = "../SuperAdmin/index.html";
+                        // }else if (role == "Kandidat"){
+                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
+                        //     window.location.href = "../Kandidat/index.html";
+                        // }else {
+                        //     window.location.href = "../Mahasiswa/index.html";
+                        // }
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -253,8 +259,6 @@
             }
 
         });
-
-
     }
 
     function getCookieValue(cookieName) {
@@ -277,7 +281,7 @@
 
     // Mendapatkan peran dari cookie atau sumber lainnya
     var role = getCookieValue("role"); // Fungsi untuk mendapatkan peran dari cookie
-    console.log(role);
+    //console.log(role);
 
     // Daftar elemen sidebar yang perlu diubah berdasarkan peran
     var sidebarElements = [

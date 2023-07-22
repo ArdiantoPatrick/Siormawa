@@ -78,8 +78,8 @@ public class EventService {
         }
     }
 
-    public List<Event> getEventAktif(){
-        List<Event> event = eventRepository.getEventAktif();
+    public Event getEventAktif(){
+        Event event = eventRepository.getEventAktif();
         return event;
     }
 

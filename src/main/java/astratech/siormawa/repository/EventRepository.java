@@ -25,7 +25,7 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
     public Event NonaktifkanEvent(int idEvent);
 
     @Query(value = "SELECT TOP 1 * FROM siormawa_msevent WHERE evt_status = 'Aktif'" , nativeQuery = true)
-    public List<Event> getEventAktif();
+    public Event getEventAktif();
 
     @Query(value = "SELECT TOP 1 * FROM siormawa_msevent ORDER BY evt_id_event DESC" , nativeQuery = true)
     public Event getLastEvent();

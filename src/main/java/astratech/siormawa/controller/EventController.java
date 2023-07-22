@@ -82,8 +82,8 @@ public class EventController {
     }
 
     @GetMapping("/getEventAktif")
-    public List<Event> getEvent(HttpServletResponse response){
-        List<Event> event = eventService.getEventAktif();
+    public Event getEvent(HttpServletResponse response){
+        Event event = eventService.getEventAktif();
         return event;
     }
 //    @GetMapping("/getEventAktif")

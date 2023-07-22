@@ -10,47 +10,49 @@ public class Kandidat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name ="kdt_id_kandidat")
+    @Column(name = "kdt_id_kandidat")
     private Integer idKandidat;
 
-//    @JoinColumn(name = "evt_id_event")
-//    @Column(name ="kdt_id_event")
+    @Column(name = "kdt_id_event")
     private Integer idEvent;
 
-    @Column(name ="kdt_nama")
+    @Column(name = "kdt_nama")
     private String nama;
 
-    @Column(name ="kdt_username")
+    @Column(name = "kdt_username")
     private String username;
 
-    @Column(name ="kdt_password")
-    private String password;
+    @Column(name = "kdt_prodi")
+    private String prodi;
 
-    @Column(name ="kdt_role")
-    private int role;
+    @Column(name = "kdt_pendaftaran")
+    private String pendaftaran;
 
-    @Column(name ="kdt_status")
+    @Column(name = "kdt_status")
     private String status;
 
-    @Column(name ="kdt_created_by")
+    @Column(name = "kdt_created_by")
     private String createdby;
 
-    @Column(name ="kdt_created_date")
+    @Column(name = "kdt_created_date")
     private Date createddate;
 
-    @Column(name ="kdt_modified_by")
+    @Column(name = "kdt_modified_by")
     private String modifiedby;
 
-    @Column(name ="kdt_modified_date")
+    @Column(name = "kdt_modified_date")
     private Date modifieddate;
 
-    public Kandidat(Integer idKandidat, Integer idEvent, String nama, String username, String password, int role, String status, String createdby, Date createddate, String modifiedby, Date modifieddate) {
+    public Kandidat() {
+    }
+
+    public Kandidat(Integer idKandidat, Integer idEvent, String nama, String username, String prodi, String pendaftaran, String status, String createdby, Date createddate, String modifiedby, Date modifieddate) {
         this.idKandidat = idKandidat;
         this.idEvent = idEvent;
         this.nama = nama;
         this.username = username;
-        this.password = password;
-        this.role = role;
+        this.prodi = prodi;
+        this.pendaftaran = pendaftaran;
         this.status = status;
         this.createdby = createdby;
         this.createddate = createddate;
@@ -58,8 +60,12 @@ public class Kandidat {
         this.modifieddate = modifieddate;
     }
 
-    public Kandidat(){
+    public String getPendaftaran() {
+        return pendaftaran;
+    }
 
+    public void setPendaftaran(String pendaftaran) {
+        this.pendaftaran = pendaftaran;
     }
 
     public Integer getIdKandidat() {
@@ -78,6 +84,14 @@ public class Kandidat {
         this.idEvent = idEvent;
     }
 
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -86,28 +100,12 @@ public class Kandidat {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getProdi() {
+        return prodi;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
+    public void setProdi(String prodi) {
+        this.prodi = prodi;
     }
 
     public String getStatus() {
