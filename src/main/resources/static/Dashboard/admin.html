@@ -301,7 +301,13 @@
                 <a id="dashboardLinkSuperAdmin" href='Dashboard/superadmin.html' class='mt-0 list-group-item list-group-item-action'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
-                <a id="dashboardLinkOrmawa" href='Dashboard/ormawa.html' class='mt-0 list-group-item list-group-item-action'
+                <a id="dashboardLinkHimma" href='Dashboard/himma.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
+                        class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
+                <a id="dashboardLinkBEM" href='Dashboard/bem.html' class='mt-0 list-group-item list-group-item-action'
+                   style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
+                        class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
+                <a id="dashboardLinkMPM" href='Dashboard/mpm.html' class='mt-0 list-group-item list-group-item-action'
                    style='border-radius: 0px; border: none; padding-left: 22px; display: inherit; padding-top: 12px; padding-bottom: 12px;'><i
                         class='fa fa-home fa-lg fa-pull-left'></i>Dashboard </a>
                 <a id="dashboardLinkKandidat" href='Dashboard/kandidat.html' class='mt-0 list-group-item list-group-item-action'
@@ -453,21 +459,23 @@
 
     // Daftar elemen sidebar yang perlu diubah berdasarkan peran
     var sidebarElements = [
-        { elementId: "logoutLink", allowedRoles: ["Admin", "Ormawa", "Super Admin", "Kandidat", "MAHASISWA"] },
+        { elementId: "logoutLink", allowedRoles: ["ADMIN", "HIMMA", "BEM", "MPM", "SUPER ADMIN", "KANDIDAT", "MAHASISWA"] },
         { elementId: "dashboardLinkMahasiswa", allowedRoles: ["MAHASISWA"] },
-        { elementId: "dashboardLinkAdmin", allowedRoles: ["Admin"] },
-        { elementId: "dashboardLinkSuperAdmin", allowedRoles: ["Super Admin"] },
-        { elementId: "dashboardLinkOrmawa", allowedRoles: ["Ormawa"] },
-        { elementId: "dashboardLinkKandidat", allowedRoles: ["Kandidat"] },
-        { elementId: "eventLink", allowedRoles: ["Admin"] },
-        { elementId: "kandidatLink", allowedRoles: ["Admin"] },
-        { elementId: "registrasiLink", allowedRoles: ["Kandidat"] },
-        { elementId: "penilaianLink", allowedRoles: ["Ormawa"] },
-        { elementId: "informasiLink", allowedRoles: ["Admin", "Ormawa"] },
-        { elementId: "userLink", allowedRoles: ["Super Admin"] },
-        { elementId: "organisasiLink", allowedRoles: ["Super Admin"]},
-        { elementId: "jabatanLink", allowedRoles: ["Super Admin"]},
-        { elementId: "periodeLink", allowedRoles: ["Super Admin"]}
+        { elementId: "dashboardLinkAdmin", allowedRoles: ["ADMIN"] },
+        { elementId: "dashboardLinkSuperAdmin", allowedRoles: ["SUPER ADMIN"] },
+        { elementId: "dashboardLinkHimma", allowedRoles: ["HIMMA"] },
+        { elementId: "dashboardLinkBEM", allowedRoles: ["BEM"] },
+        { elementId: "dashboardLinkMPM", allowedRoles: ["MPM"] },
+        { elementId: "dashboardLinkKandidat", allowedRoles: ["KANDIDAT"] },
+        { elementId: "eventLink", allowedRoles: ["ADMIN"] },
+        { elementId: "kandidatLink", allowedRoles: ["ADMIN"] },
+        { elementId: "registrasiLink", allowedRoles: ["KANDIDAT"] },
+        { elementId: "penilaianLink", allowedRoles: ["HIMMA", "BEM", "MPM"] },
+        { elementId: "informasiLink", allowedRoles: ["ADMIN", "HIMMA", "BEM", "MPM"] },
+        { elementId: "userLink", allowedRoles: ["SUPER ADMIN"] },
+        { elementId: "organisasiLink", allowedRoles: ["SUPER ADMIN"]},
+        { elementId: "jabatanLink", allowedRoles: ["SUPER ADMIN"]},
+        { elementId: "periodeLink", allowedRoles: ["SUPER ADMIN"]}
     ];
 
     // Menampilkan atau menyembunyikan elemen sidebar berdasarkan peran

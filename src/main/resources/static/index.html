@@ -215,7 +215,7 @@
                                 url: "http://localhost:8080/getKandidatByUsername?username=" + NIM + "&idEvent=" + idEvent,
                                 success: function (data) {
                                     if (data != "") {
-                                        role = "Kandidat";
+                                        role = "KANDIDAT";
                                         document.cookie = "role=" + role + ";" + expires + ";path=/";
                                         window.location.href = "./Dashboard/kandidat.html";
                                     } else {
@@ -223,13 +223,19 @@
                                             url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
                                             success: function (data) {
                                                 role = data.role;
-                                                if (role == "Admin") {
+                                                if (role == "ADMIN") {
                                                     document.cookie = "role=" + role + ";" + expires + ";path=/";
                                                     window.location.href = "./Dashboard/admin.html";
-                                                } else if (role == "Ormawa") {
+                                                } else if (role == "HIMMA") {
                                                     document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                                    window.location.href = "./Dashboard/ormawa.html";
-                                                } else if (role == "Super Admin") {
+                                                    window.location.href = "Dashboard/himma.html";
+                                                }else if (role == "BEM") {
+                                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                                    window.location.href = "Dashboard/himma.html";
+                                                }else if (role == "MPM") {
+                                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                                    window.location.href = "Dashboard/himma.html";
+                                                } else if (role == "SUPER ADMIN") {
                                                     document.cookie = "role=" + role + ";" + expires + ";path=/";
                                                     window.location.href = "./Dashboard/superadmin.html";
                                                 } else {
@@ -252,7 +258,7 @@
                                         window.location.href = "./Dashboard/admin.html";
                                     } else if (role == "Ormawa") {
                                         document.cookie = "role=" + role + ";" + expires + ";path=/";
-                                        window.location.href = "./Dashboard/ormawa.html";
+                                        window.location.href = "Dashboard/himma.html";
                                     } else if (role == "Super Admin") {
                                         document.cookie = "role=" + role + ";" + expires + ";path=/";
                                         window.location.href = "./Dashboard/superadmin.html";

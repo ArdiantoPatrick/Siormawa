@@ -16,7 +16,7 @@ public interface PenggunaRepository extends CrudRepository<Pengguna, Integer> {
     @Query(value = "SELECT * FROM siormawa_mspengguna WHERE pgn_username= ?1 AND pgn_status = 'Aktif'", nativeQuery = true)
     public Pengguna getPenggunaByUsername(int username);
 
-    @Query(value = "SELECT * FROM siormawa_mspengguna WHERE (pgn_status = 'Aktif' OR pgn_status = 'Tidak Aktif') AND (pgn_role = 'Admin' OR pgn_role = 'Ormawa')", nativeQuery = true)
+    @Query(value = "SELECT * FROM siormawa_mspengguna WHERE (pgn_status = 'Aktif' OR pgn_status = 'Tidak Aktif') AND (pgn_role = 'ADMIN' OR pgn_role = 'HIMMA' OR pgn_role = 'MPM' OR pgn_role = 'BEM')", nativeQuery = true)
     public List<Pengguna> getPenggunas();
 
     @Query(value = "UPDATE siormawa_mspengguna SET pgn_status = 'Deleted' WHERE pgn_id_pengguna= ?1", nativeQuery = true)
