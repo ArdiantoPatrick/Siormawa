@@ -12,6 +12,9 @@ public interface TahapanRepository extends CrudRepository<Tahapan, Integer> {
     @Query(value = "SELECT * FROM siormawa_mstahapan WHERE thp_id_tahapan= ?1 AND (thp_status = 'Aktif' OR thp_status = 'Tidak Aktif')" , nativeQuery = true)
     public Tahapan getTahapanByIdTahapan(int idTahapan);
 
+    @Query(value = "SELECT * FROM siormawa_mstahapan WHERE thp_id_tahapan= ?1 AND (thp_status = 'Aktif' OR thp_status = 'Tidak Aktif' OR thp_status = 'Selesai')" , nativeQuery = true)
+    public Tahapan getTahapanByIdTahapanSemua(int idTahapan);
+
     @Query(value = "SELECT * FROM siormawa_mstahapan WHERE thp_id_event= ?1 AND (thp_status = 'Aktif' OR thp_status = 'Tidak Aktif')" , nativeQuery = true)
     public Tahapan getTahapanByIdEvent(int idEvent);
 
@@ -31,7 +34,7 @@ public interface TahapanRepository extends CrudRepository<Tahapan, Integer> {
     public Tahapan NonaktifkanTahapan(int idTahapan);
 
     @Query(value = "SELECT * FROM siormawa_mstahapan WHERE thp_status = 'Aktif'" , nativeQuery = true)
-    public List<Tahapan> getTahapanAktif();
+    public Tahapan getTahapanAktif();
 
     @Query(value = "UPDATE siormawa_mstahapan SET thp_status = 'Tidak Aktif' WHERE thp_id_event= ?1 AND thp_status = 'Aktif'" , nativeQuery = true)
     public Tahapan semuaStatusTidakAktif(int idEvent);

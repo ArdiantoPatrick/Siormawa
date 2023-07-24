@@ -146,7 +146,11 @@
     $.ajax({
         url: "http://localhost:8080/getEventAktif",
         success: function (data) {
-            idEvent = data.idEvent;
+            if (data != "") {
+                idEvent = data.idEvent;
+            }else{
+                idEvent = "";
+            }
         },
     });
     /*@if
@@ -190,6 +194,7 @@
                 };
 
                 $.ajax(settings).done(function (response) {
+                    console.log(response);
                     var npk = response.npk;
                     var nama = response.nama;
                     var username = response.username;
@@ -204,44 +209,59 @@
                         document.cookie = "prodi=" + prodi + ";" + expires + ";path=/";
                         document.cookie = "role=" + role + ";" + expires + ";path=/";
 
-                        console.log(idEvent);
-                        $.ajax({
-                            url: "http://localhost:8080/getKandidatByUsername?username=" + NIM + "&idEvent=" + idEvent,
-                            success: function (data) {
-                                role = "Kandidat";
-                            },
-                            error: async  function (xhr, status, error) {
-                                await sleep(2000);
-                                $.ajax({
-                                    url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
-                                    success: function (data) {
-                                        role = data.role;
-                                        console.log("ksini cok");
-                                    },
-                                });
-                            }
-                        });
-
-                        function sleep(ms) {
-                            return new Promise(resolve => setTimeout(resolve, ms));
+                        console.log(NIM, idEvent);
+                        if(idEvent != "") {
+                            $.ajax({
+                                url: "http://localhost:8080/getKandidatByUsername?username=" + NIM + "&idEvent=" + idEvent,
+                                success: function (data) {
+                                    if (data != "") {
+                                        role = "Kandidat";
+                                        document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                        window.location.href = "./Dashboard/kandidat.html";
+                                    } else {
+                                        $.ajax({
+                                            url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
+                                            success: function (data) {
+                                                role = data.role;
+                                                if (role == "Admin") {
+                                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                                    window.location.href = "./Dashboard/admin.html";
+                                                } else if (role == "Ormawa") {
+                                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                                    window.location.href = "./Dashboard/ormawa.html";
+                                                } else if (role == "Super Admin") {
+                                                    document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                                    window.location.href = "./Dashboard/superadmin.html";
+                                                } else {
+                                                    window.location.href = "./Dashboard/mahasiswa.html";
+                                                }
+                                            },
+                                        });
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                }
+                            });
+                        }else{
+                            $.ajax({
+                                url: "http://localhost:8080/getPenggunaByUsername?username=" + NIM,
+                                success: function (data) {
+                                    role = data.role;
+                                    if (role == "Admin") {
+                                        document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                        window.location.href = "./Dashboard/admin.html";
+                                    } else if (role == "Ormawa") {
+                                        document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                        window.location.href = "./Dashboard/ormawa.html";
+                                    } else if (role == "Super Admin") {
+                                        document.cookie = "role=" + role + ";" + expires + ";path=/";
+                                        window.location.href = "./Dashboard/superadmin.html";
+                                    } else {
+                                        window.location.href = "./Dashboard/mahasiswa.html";
+                                    }
+                                },
+                            });
                         }
-                        //console.log(role);
-
-                        // if(role == "Admin"){
-                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
-                        //     window.location.href = "../Admin/index.html";
-                        // }else if (role == "Ormawa"){
-                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
-                        //     window.location.href = "../Ormawa/index.html";
-                        // }else if(role == "Super Admin"){
-                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
-                        //     window.location.href = "../SuperAdmin/index.html";
-                        // }else if (role == "Kandidat"){
-                        //     document.cookie = "role=" + role + ";" + expires + ";path=/";
-                        //     window.location.href = "../Kandidat/index.html";
-                        // }else {
-                        //     window.location.href = "../Mahasiswa/index.html";
-                        // }
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -275,7 +295,6 @@
                 return cookie.substring(name.length, cookie.length);
             }
         }
-
         return "";
     }
 

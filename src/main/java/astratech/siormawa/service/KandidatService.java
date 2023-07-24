@@ -32,6 +32,11 @@ public class KandidatService {
         return kandidat;
     }
 
+    public Kandidat getKandidatByUsernameValidasi(Integer username, Integer idEvent){
+        Kandidat kandidat = kandidatRepository.getKandidatByUsernameValidasi(username, idEvent);
+        return kandidat;
+    }
+
     public List<Kandidat> getKandidats(){
         List<Kandidat> kandidats = kandidatRepository.getKandidats();
         return kandidats;

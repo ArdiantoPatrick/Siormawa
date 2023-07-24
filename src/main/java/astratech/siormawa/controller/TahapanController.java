@@ -48,6 +48,12 @@ public class TahapanController {
         return tahapan;
     }
 
+    @GetMapping("/getTahapanByIdTahapanSemua")
+    public Tahapan getTahapanByIdTahapanSemua(HttpServletResponse response, @RequestParam("id") Integer id){
+        Tahapan tahapan = tahapanService.getTahapanByIdTahapanSemua(id);
+        return tahapan;
+    }
+
     @GetMapping("/getTahapanByIdEvent")
     public Tahapan getTahapanByIdEvent(HttpServletResponse response, @RequestParam("id") Integer id){
         Tahapan tahapan = tahapanService.getTahapanByIdEvent(id);
@@ -106,8 +112,8 @@ public class TahapanController {
     }
 
     @GetMapping("/getTahapanAktif")
-    public List<Tahapan> getTahapan(HttpServletResponse response){
-        List<Tahapan> tahapan = tahapanService.getTahapanAktif();
+    public Tahapan getTahapan(HttpServletResponse response){
+        Tahapan tahapan = tahapanService.getTahapanAktif();
         return tahapan;
     }
 

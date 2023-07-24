@@ -14,6 +14,9 @@ public interface KandidatRepository extends CrudRepository<Kandidat, Integer> {
     @Query(value = "SELECT * FROM siormawa_mskandidat WHERE kdt_username = ?1 AND kdt_status = 'Aktif' AND kdt_id_event = ?2", nativeQuery = true)
     public Kandidat getKandidatByUsername(int username, int idEvent);
 
+    @Query(value = "SELECT * FROM siormawa_mskandidat WHERE kdt_username = ?1 AND (kdt_status = 'Aktif' OR kdt_status = 'Menunggu Disetujui' OR kdt_status = 'Tidak Aktif') AND kdt_id_event = ?2", nativeQuery = true)
+    public Kandidat getKandidatByUsernameValidasi(int username, int idEvent);
+
     @Query(value = "SELECT * FROM siormawa_mskandidat WHERE (kdt_status = 'Aktif' OR kdt_status = 'Tidak Aktif')", nativeQuery = true)
     public List<Kandidat> getKandidats();
 

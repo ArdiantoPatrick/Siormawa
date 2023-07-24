@@ -28,6 +28,11 @@ public class TahapanService {
         return tahapan;
     }
 
+    public Tahapan getTahapanByIdTahapanSemua(Integer idTahapan){
+        Tahapan tahapan = tahapanRepository.getTahapanByIdTahapanSemua(idTahapan);
+        return tahapan;
+    }
+
     public Tahapan getTahapanByIdEvent(Integer idEvent){
         Tahapan tahapan = tahapanRepository.getTahapanByIdEvent(idEvent);
         return tahapan;
@@ -94,8 +99,8 @@ public class TahapanService {
         }
     }
 
-    public List<Tahapan> getTahapanAktif(){
-        List<Tahapan> tahapan = tahapanRepository.getTahapanAktif();
+    public Tahapan getTahapanAktif(){
+        Tahapan tahapan = tahapanRepository.getTahapanAktif();
         return tahapan;
     }
 

@@ -30,7 +30,7 @@ public class KandidatController {
 
         LocalDate now = LocalDate.now();
         Date date = java.sql.Date.valueOf(now);
-        Kandidat kandidat = new Kandidat(0, idEvent, nama, username, prodi, pendaftaran, "Aktif", "a", date, null, null);
+        Kandidat kandidat = new Kandidat(0, idEvent, nama, username, prodi, pendaftaran, "Menunggu Disetujui", "a", date, null, null);
         kandidatService.save(kandidat);
         return ResponseEntity.status(HttpStatus.FOUND).
                 location(URI.create("http://localhost:8080/Kandidat/index.html")).build();
@@ -48,6 +48,14 @@ public class KandidatController {
                                           @RequestParam("username") Integer username,
                                           @RequestParam("idEvent") Integer idEvent){
         Kandidat kandidat = kandidatService.getKandidatByUsername(username, idEvent);
+        return kandidat;
+    }
+
+    @GetMapping("/getKandidatByUsernameValidasi")
+    public Kandidat getKandidatByUsernameValidasi(HttpServletResponse response,
+                                          @RequestParam("username") Integer username,
+                                          @RequestParam("idEvent") Integer idEvent){
+        Kandidat kandidat = kandidatService.getKandidatByUsernameValidasi(username, idEvent);
         return kandidat;
     }
 
